@@ -1,0 +1,137 @@
+{% extends "base.html" %} {% block start %}
+<div class="view-recipe-container">
+  <!-- Home Button -->
+  <a href="/" class="home-link">Home</a>
+
+  <div class="recipe-details">
+    <h1 class="recipe-title">{{ recipe.recipe_name }}</h1>
+    <img
+      src="/media/{{ recipe.recipe_image }}"
+      alt="{{ recipe.recipe_name }}"
+      class="recipe-image"
+    />
+    <p class="recipe-description">{{ recipe.recipe_description }}</p>
+  </div>
+</div>
+
+<style>
+  /* General Styles */
+  body {
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    backdrop-filter: blur(5px);
+    min-height: 100vh; /* Ensures the body stretches across the viewport */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Keeps footer and content spaced properly */
+  }
+
+  /* Home Button */
+  .home-link {
+    display: inline-block;
+    margin: 20px;
+    padding: 12px 30px; /* Larger padding for a more prominent look */
+    background: linear-gradient(
+      135deg,
+      #e65a50,
+      #b8574f
+    ); /* Gradient background */
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    position: fixed; /* Fixed position to keep it visible while scrolling */
+    top: 20px; /* Distance from the top */
+    left: 20px; /* Distance from the left */
+    z-index: 1000; /* Ensures it stays above other elements */
+  }
+
+  .home-link:hover {
+    background: linear-gradient(
+      135deg,
+      #b8574f,
+      #e65a50
+    ); /* Reversed gradient on hover */
+    transform: translateY(-5px); /* Slight lift effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+  }
+
+  .home-link:active {
+    transform: translateY(2px); /* Button depresses slightly on click */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Lighter shadow on click */
+  }
+
+  .home-link:focus {
+    outline: none; /* Remove outline when focused */
+  }
+
+  .recipe-details {
+    text-align: center;
+    color: white;
+    margin-top: 50px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    margin: 50px auto;
+    flex: 1; /* Makes sure this section can grow or shrink as needed */
+  }
+
+  .recipe-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #b8574f;
+    margin-bottom: 20px;
+  }
+
+  .recipe-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+
+  .recipe-description {
+    font-size: 18px;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  /* Scrollable Design */
+  .view-recipe-container {
+    overflow-y: auto;
+    padding-bottom: 50px; /* Adds some space to prevent content from sticking to the bottom */
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .recipe-details {
+      width: 90%;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .recipe-title {
+      font-size: 28px;
+    }
+
+    .recipe-description {
+      font-size: 16px;
+    }
+  }
+</style>
+{% endblock %}

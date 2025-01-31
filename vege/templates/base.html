@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{page}}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- Importing "Dancing Script" font from Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* General Styles */
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh; /* Makes sure the body takes the full height of the viewport */
+      }
+
+      /* Footer Styles */
+      footer {
+        background: linear-gradient(
+          145deg,
+          #4b1d26,
+          #b8574f
+        ); /* Gradient background */
+        color: #fff;
+        padding: 30px 0;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        font-family: "Arial", sans-serif;
+        position: relative;
+        margin-top: auto; /* Makes sure footer is always at the bottom */
+        width: 100%; /* Ensures it spans across the entire width */
+      }
+
+      footer p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        position: relative;
+      }
+
+      /* Applying fancy font only to the "ZAYN" text */
+      footer p span {
+        font-family: "Dancing Script", cursive; /* Fancy font for "ZAYN" */
+        font-size: 28px; /* Larger font size for emphasis */
+        color: #f8c102; /* Gold color for ZAYN */
+      }
+
+      footer p::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        transform: translateX(-50%);
+        width: 50px;
+        height: 3px;
+        background-color: #f8c102; /* Gold accent */
+        border-radius: 2px;
+      }
+
+      footer p:hover {
+        color: #f8c102; /* Hover effect - change text color to gold */
+        transition: color 0.3s ease-in-out;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        footer p {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {% block start %} {% endblock %}
+
+    <!-- Footer Section -->
+    <footer>
+      <p>Developed by <span>ZAYN</span> | All rights reserved</p>
+    </footer>
+
+    <!-- Optional Bootstrap JS (for some components like modal, dropdown) -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pzjw8f+ua7Kw1TIq0thP6ePEvoaNf++p9fBb6seA7EjjJZT1MvoYgVsbKcDgCkNQ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
