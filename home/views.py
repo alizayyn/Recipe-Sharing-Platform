@@ -10,7 +10,6 @@ def home(request):
     page="home"
     queryset=Recipe.objects.all()
     query=request.GET.get('search')
-    print(query)
     if query:
         queryset=queryset.filter(recipe_name__icontains=query)
       
